@@ -77,14 +77,6 @@ public class Service {
         return nodeInfo;
     }
 
-//    public void priceUpdate(String id){
-//        while (id != null) {
-////            int avgCategoryPrice = categoryRepository.avgPrice(id);
-////            categoryRepository.updateCategoryPrice(avgCategoryPrice, id);
-//            id = categoryRepository.selectParentId(id);
-//        }
-//    }
-
     int offerCount;
     int offerPriceSum;
     public ArrayList getAllChildren(Category category){
@@ -99,14 +91,14 @@ public class Service {
             int localPriceSum = 0;
             for (Offer offer : offerList) {
                 localPriceSum += offer.getPrice();
-                offerPriceSum += localPriceSum;
+                offerPriceSum += offer.getPrice();
                 localCount++;
                 offerCount++;
                 NodeInfo nodeInfo = dtoEntityConverter.OfferToNodeInfo(offer);
                 nodeInfoList.add(nodeInfo);
-                categoryRepository.updateCategoryPrice(localPriceSum / localCount, category.getId());
-                category.setPrice(localPriceSum / localCount);
             }
+            categoryRepository.updateCategoryPrice(localPriceSum / localCount, category.getId());
+            category.setPrice(localPriceSum / localCount);
         } else if (!categoryList.isEmpty()) {
             for (Category childCategory : categoryList) {
                 NodeInfo nodeInfo = new NodeInfo();
@@ -115,13 +107,12 @@ public class Service {
                 childCategory.setPrice(categoryPrice);
                 dtoEntityConverter.CategoryToNodeInfo(childCategory, nodeInfo);
                 nodeInfoList.add(nodeInfo);
-                }
+            }
             if (offerCount != 0) {
                 categoryRepository.updateCategoryPrice(offerPriceSum / offerCount, category.getId());
                 category.setPrice(offerPriceSum / offerCount);
             }
         }
-
         return nodeInfoList;
     }
 }

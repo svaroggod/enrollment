@@ -1,5 +1,5 @@
 FROM maven AS builder
-WORKDIR /enrollment2/
+WORKDIR /enrollment/
 COPY . .
 RUN mvn clean package
 

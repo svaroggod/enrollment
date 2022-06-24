@@ -23,10 +23,6 @@ public interface CategoryRepository extends JpaRepository<Category, String> {
     @Query(value = "select price from category c where id = :id", nativeQuery = true)
     int selectPrice(@Param("id") String id);
 
-    @Transactional
-    @Query(value = "select id from category c where parent_id = :parentId", nativeQuery = true)
-    ArrayList<String> selectIdByParentId(@Param("parentId") String parentId);
-
     Category findEntityById(String id);
 
     ArrayList<Category> findAllByParentId(String parentId);

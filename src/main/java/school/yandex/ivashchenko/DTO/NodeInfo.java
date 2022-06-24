@@ -13,7 +13,7 @@ public class NodeInfo {
 
     public int price;
 
-//    public String updateDate;
+    public String updateDate;
 
     public ArrayList<NodeInfo> children;
 

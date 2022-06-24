@@ -19,7 +19,7 @@ public class Category {
     private String id;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category",
-    fetch = FetchType.EAGER)
+            fetch = FetchType.EAGER)
     private List<Offer> offerList;
 
     @Column(name = "type")
