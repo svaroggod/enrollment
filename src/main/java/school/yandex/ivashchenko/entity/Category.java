@@ -1,6 +1,9 @@
 package school.yandex.ivashchenko.entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -34,7 +37,7 @@ public class Category {
 
     @Null
     @Column(name = "price")
-    private int price;
+    private Integer price;
 
     @Column(name = "updateDate")
     private String updateDate;

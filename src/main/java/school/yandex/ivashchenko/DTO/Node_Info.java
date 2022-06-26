@@ -2,7 +2,7 @@ package school.yandex.ivashchenko.DTO;
 
 import java.util.ArrayList;
 
-public class NodeInfo {
+public class Node_Info {
     public String id;
 
     public String type;
@@ -13,9 +13,10 @@ public class NodeInfo {
 
     public int price;
 
-    public String updateDate;
+    public String date;
 
-    public ArrayList<NodeInfo> children;
+    public ArrayList<Node_Info> children;
 
-    public NodeInfo(){}
+    public Node_Info() {
+    }
 }

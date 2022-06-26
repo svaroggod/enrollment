@@ -4,12 +4,10 @@ import org.springframework.stereotype.Component;
 import school.yandex.ivashchenko.entity.Category;
 import school.yandex.ivashchenko.entity.Offer;
 
-import java.util.ArrayList;
-
 
 @Component
-public class DTOEntityConverter {
-    public Offer itemToOffer(Item item, Category category) {
+public class DTO_To_Entity_Convert {
+    public Offer item_To_Offer(Item item, Category category) {
         Offer offer = new Offer();
         offer.setId(item.id);
         offer.setType(item.type);
@@ -19,7 +17,8 @@ public class DTOEntityConverter {
         offer.setUpdateDate(item.updateDate);
         return offer;
     }
-    public Category itemToCategory(Item item) {
+
+    public Category item_To_Category(Item item) {
         Category category = new Category();
         category.setId(item.id);
         category.setName(item.name);
@@ -30,24 +29,24 @@ public class DTOEntityConverter {
         return category;
     }
 
-    public NodeInfo OfferToNodeInfo (Offer offer) {
-        NodeInfo nodeInfo = new NodeInfo();
+    public Node_Info Offer_To_Node_Info(Offer offer) {
+        Node_Info nodeInfo = new Node_Info();
         nodeInfo.id = offer.getId();
         nodeInfo.type = offer.getType();
         nodeInfo.name = offer.getName();
         nodeInfo.parentId = offer.getCategory().getId();
         nodeInfo.price = offer.getPrice();
-        nodeInfo.updateDate = offer.getUpdateDate();
+        nodeInfo.date = offer.getUpdateDate();
         return nodeInfo;
     }
 
-    public void CategoryToNodeInfo (Category category, NodeInfo nodeInfo) {
+    public void Category_To_Node_Info(Category category, Node_Info nodeInfo) {
         nodeInfo.id = category.getId();
         nodeInfo.type = category.getType();
         nodeInfo.name = category.getName();
         nodeInfo.parentId = category.getParentId();
         nodeInfo.price = category.getPrice();
-        nodeInfo.updateDate = category.getUpdateDate();
-//        nodeInfo.children = new ArrayList<>();
+        nodeInfo.date = category.getUpdateDate();
+
     }
 }

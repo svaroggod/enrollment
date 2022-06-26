@@ -33,13 +33,10 @@ public class Offer {
     @JoinColumn(name = "parentId")
     private Category category;
 
-//    @Column(name = "parentId")
-//    private String parentId;
-
     @NotNull
     @Min(value = 0)
     @Column(name = "price")
-    private int price;
+    private Integer price;
 
     @Column(name = "updateDate")
     private String updateDate;

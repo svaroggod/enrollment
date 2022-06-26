@@ -9,15 +9,16 @@ import school.yandex.ivashchenko.entity.Category;
 
 import java.util.ArrayList;
 
-public interface CategoryRepository extends JpaRepository<Category, String> {
+
+public interface Category_Repository extends JpaRepository<Category, String> {
     @Modifying
     @Transactional
     @Query(value = "update category set price = :price where id = :id", nativeQuery = true)
-    int updateCategoryPrice(@Param("price") int price, @Param("id") String parentId);
+    void updateCategoryPrice(@Param("price") int price, @Param("id") String parentId);
 
     @Transactional
-    @Query(value = "select parent_id from category where id = :id", nativeQuery = true)
-    String selectParentId(@Param("id") String id);
+    @Query(value = "select id from category where parent_id = :parent_id", nativeQuery = true)
+    ArrayList<String> selectIdByParentId(@Param("parent_id") String parent_id);
 
     @Transactional
     @Query(value = "select price from category c where id = :id", nativeQuery = true)

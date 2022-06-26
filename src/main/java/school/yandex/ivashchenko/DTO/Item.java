@@ -10,9 +10,10 @@ public class Item {
 
     public String parentId;
 
-    public int price;
+    public Integer price;
 
     public String updateDate;
 
-    public Item(){}
+    public Item() {
+    }
 }

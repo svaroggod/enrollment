@@ -9,7 +9,7 @@ import school.yandex.ivashchenko.entity.Offer;
 
 import java.util.ArrayList;
 
-public interface OfferRepository extends JpaRepository<Offer, String> {
+public interface Offer_Repository extends JpaRepository<Offer, String> {
     @Transactional
     @Query(value = "select parent_id from offer where id = :id", nativeQuery = true)
     String selectParentId(@Param("id") String id);

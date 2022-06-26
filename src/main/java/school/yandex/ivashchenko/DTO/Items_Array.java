@@ -2,11 +2,11 @@ package school.yandex.ivashchenko.DTO;
 
 import java.util.ArrayList;
 
-public class ItemsArray {
+public class Items_Array {
     public ArrayList<Item> items;
 
     public String updateDate;
 
-    public ItemsArray() {
+    public Items_Array() {
     }
 }
