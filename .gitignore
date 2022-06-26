@@ -18,5 +18,5 @@ out/
 *.iw
 /localPath/*.xlsx
 ./target/
-*/*.env
+*/*my.env
 
